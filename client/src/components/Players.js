@@ -90,8 +90,8 @@ const Players = ({ state, address }) => {
             <b>Registerd Players </b>:
             <br />
             <br />
-             {!loading ? (registerdPlayers.length !== 0 &&
-              registerdPlayers.map((name) => <p className="acc" key={name}>{name}</p>)):
+             {!loading ? registerdPlayers.length !== 0 ?
+              registerdPlayers.map((name) => <p className="acc" key={name}>{name}</p>):"No Registerd Player":
               <div class="spinner-border spinner-border-md" role="status">
               <span class="sr-only"></span>
             </div>

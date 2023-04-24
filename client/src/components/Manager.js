@@ -4,7 +4,7 @@ import "./Manager.css"
 const Manager = ({state}) =>{
 
     const[account , setAccount] = useState("");
-    const[cbalance , setCbalance] = useState(null);
+    const[cbalance , setCbalance] = useState("");
     const[Loading , setLoading] = useState(false)
     const[lwinner , setLwinner] = useState("No Winner Yet");
 
@@ -32,11 +32,12 @@ const Manager = ({state}) =>{
             setLoading(true)
             const balance =  await contract.methods.getBalance().call({from:account});    //call is read only
             const bal = web3.utils.fromWei(balance, "ether");
-            setCbalance(bal);
-            setLoading(false)
+            setCbalance(bal +" "+"ETH");
+           
         } catch (error) {
             setCbalance("You are not the manager");
         }
+        setLoading(false)
        
     }
 
@@ -55,7 +56,7 @@ const Manager = ({state}) =>{
                 setLwinner("Players are less than 3")
             }
             else{
-                setCbalance("No Winner Yet");
+                setLwinner("No Winner Yet");
             }
         }
        
@@ -73,11 +74,12 @@ const Manager = ({state}) =>{
             Click For Winner
           </button>
         </li>
+        
         <li className="list-group-item text-success">
-          <b>Balance : </b> {!Loading ? cbalance:
+          <b>Balance : </b>{!Loading ?cbalance:
           <div class="spinner-border spinner-border-sm" role="status">
           <span class="sr-only"></span>
-        </div>} ETH
+        </div>} 
           <button className="button1" onClick={contractBalance}>
             Click For Balance
           </button>
