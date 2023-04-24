@@ -1,0 +1,40 @@
+*{
+  font-family: 'Oswald', sans-serif;
+}
+
+body {
+  background-color: #ffe14b;
+  
+}
+.footer {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  text-align: center;
+}
+
+
+
+.navtext {
+  color: white;
+}
+
+.navbar-toggler{
+  background-color: white;
+} 
+
+.navtext:hover,
+.navtext:active {
+  background: white;
+  color: black;
+}
+
+.acc{
+  overflow: hidden;
+  text-overflow: ellipsis;
+  /* white-space: nowrap */
+}
+
+
+
